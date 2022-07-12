@@ -20,4 +20,7 @@ func _ready():
 
 func _on_joycon_button_click(name):
 	print(name)
+	
+func _process(delta):
+	joycon._process(delta)
 ```
