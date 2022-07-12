@@ -32,6 +32,13 @@ var last_emitted = {
 	right = false,
 	top = false,
 	down = false,
+	math = false,
+	joystick = false,
+	shoulder = false,
+	special = false,
+	sl = false,
+	sr = false,
+	z = false,
 }
 
 var inverted = 1 #don't invert
@@ -106,7 +113,14 @@ func maybe_emit_buttons(buttons):
 		top = bool(buttons & 1 << 14) || bool(buttons & 1 << 3),
 		right = bool(buttons & 1 << 15) || bool(buttons & 1 << 1),
 		down = bool(buttons & 1 << 13) || bool(buttons & 1 << 2),
-		left = bool(buttons & 1 << 12) || bool(buttons & 1 << 0)
+		left = bool(buttons & 1 << 12) || bool(buttons & 1 << 0),
+		math = bool(buttons & 1 << 4) || bool(buttons & 1 << 5), # + / -
+		joystick = bool(buttons & 1 << 7) || bool(buttons & 1 << 6),
+		shoulder = bool(buttons & 1 << 9) || bool(buttons & 1 << 8), # L / R
+		special = bool(buttons & 1 << 16) || bool(buttons & 1 << 17), # home / screenshot
+		sl = bool(buttons & 1 << 18),
+		sr = bool(buttons & 1 << 19),
+		z = bool(buttons & 1 << 11) || bool(buttons & 1 << 10), # zl / zr
 	}
 	if (buttons_pressed.hash() == last_emitted.hash()):
 		return
