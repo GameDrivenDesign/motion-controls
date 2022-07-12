@@ -52,21 +52,21 @@ button_released(button: string)
 ```gdscript
 # READ/WRITE
 $joycon.controller_number: int	# index from 0 which controller this joycon.tscn instance represents
-								# by default, it will simply increase with each new global(!) instance
+				# by default, it will simply increase with each new global(!) instance
 
 # READ ONLY
-$joycon.raw_accel: Vector3 		# raw acceleration in m/s², NOTE: this includes gravity!
+$joycon.raw_accel: Vector3 	# raw acceleration in m/s², NOTE: this includes gravity!
 $joycon.linear_accel: Vector3 	# estimation of acceleration without gravity in m/s²
 $joycon.raw_rotation: Vector3 	# raw rotation in radians/s
-$joycon.orientation: Quat 		# estimation of the current absolute orientation of the joycon
-$joycon.bias: float				# value you can try tweaking if the orientation values are too noisy.
-								# lower values mean slower but more stable response to rotation
+$joycon.orientation: Quat 	# estimation of the current absolute orientation of the joycon
+$joycon.bias: float		# value you can try tweaking if the orientation values are too noisy.
+				# lower values mean slower but more stable response to rotation
 
-$joycon.color: Color 			# color of the controller
-$joycon.is_left: bool 			# whether this controller is left or right
-$joycon.joystick: Vector2		# current position of the joystick in [(-1;-1);(1;1)]
+$joycon.color: Color 		# color of the controller
+$joycon.is_left: bool 		# whether this controller is left or right
+$joycon.joystick: Vector2	# current position of the joystick in [(-1;-1);(1;1)]
 $joycon.buttons_pressed: Dict[string,bool]
-								# whether a button is held, use the button names from (2.) above
+				# whether a button is held, use the button names from (2.) above
 ```
 4. to control joining, use
 ```gdscript
@@ -75,6 +75,7 @@ var manager = preload("res://JoyCons/joycon_manager.gd").new()
 
 func spawn_player(controller_number: number):
 	var player = preload("res://my_player.tscn").instance()
+	# should set the nested joycon.tscn's controller_number
 	player.set_controller(controller_number)
 
 func _ready():
