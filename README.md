@@ -53,14 +53,17 @@ button_released(button: string)
 # READ/WRITE
 $joycon.controller_number: int	# index from 0 which controller this joycon.tscn instance represents
 				# by default, it will simply increase with each new global(!) instance
+$joycon.bias: float		# value you can try tweaking if the orientation values (see below) are
+				# too noisy. Lower values mean slower but more stable response to rotation
+$joycon.rumble			# FIXME vibration engine input value, maybe also a method like
+				# add_rumble(frequency,duration)?
+$joycon.leds: Array[bool]	# an array of exactly four bools, indicating which LEDs are turned on
 
 # READ ONLY
 $joycon.raw_accel: Vector3 	# raw acceleration in m/s², NOTE: this includes gravity!
 $joycon.linear_accel: Vector3 	# estimation of acceleration without gravity in m/s²
 $joycon.raw_rotation: Vector3 	# raw rotation in radians/s
 $joycon.orientation: Quat 	# estimation of the current absolute orientation of the joycon
-$joycon.bias: float		# value you can try tweaking if the orientation values are too noisy.
-				# lower values mean slower but more stable response to rotation
 
 $joycon.color: Color 		# color of the controller
 $joycon.is_left: bool 		# whether this controller is left or right
