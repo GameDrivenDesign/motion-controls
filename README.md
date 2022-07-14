@@ -48,6 +48,10 @@ $joycon.buttons_pressed: Dict[string,bool]
 
 # FUNCTIONS
 $joycon.rumble(frequency, intensity)
+
+# Future Work
+$joycon.dead_zone: number	# dead zone for the joystick in distancen from 0,0
+$joycon.leds: Array[bool]	# an array of exactly four bools, indicating which LEDs are turned on
 ```
 
 4. to control joining, use
