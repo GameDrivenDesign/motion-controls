@@ -35,6 +35,24 @@ func _process(delta):
 	joycon._process(delta)
 ```
 
+You can read the Joystick position using the following code snippet:
+
+```gdscript
+var joycon
+
+func _ready():
+	joycon = load("res://JoyCons/JoyCon.gd").new()
+	joycon.init()
+	joycon.set_controller(0)
+	print(joycon.get_joycon_color_as_string())
+
+func _process(delta):
+	joycon._process(delta)
+	
+	var direction = joycon.get_joystick()
+	print(direction)
+```
+
 ## Design Draft
 (not currently implemented but planned)
 
