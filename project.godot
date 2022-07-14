@@ -11,12 +11,16 @@ config_version=4
 [application]
 
 config/name="joycon-addon"
-run/main_scene="res://JoyCons/game.tscn"
+run/main_scene="res://JoyCons/Demos/Preview.tscn"
 config/icon="res://icon.png"
 
 [editor_plugins]
 
 enabled=PoolStringArray(  )
+
+[global]
+
+main=false
 
 [physics]
 

@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://JoyCons/Demos/Preview.gd" type="Script" id=1]
+[ext_resource path="res://JoyCons/Demos/Plot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://JoyCons/JoyCon.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_unshaded = true
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_unshaded = true
+albedo_color = Color( 0, 1, 0.180392, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_unshaded = true
+albedo_color = Color( 0, 0.156863, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_unshaded = true
+
+[node name="Preview" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 9.11208, 15.1098, 8.48647 )
+
+[node name="Plot" parent="Camera" instance=ExtResource( 2 )]
+position = Vector2( 18, 318 )
+
+[node name="JoyCon" parent="." instance=ExtResource( 3 )]
+
+[node name="XAxis" type="MeshInstance" parent="."]
+transform = Transform( 0.434842, 0, 0, 0, 0.434842, 0, 0, 0, 0.434842, 3.07957, 0, -0.016 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 4 )
+
+[node name="YAxis" type="MeshInstance" parent="."]
+transform = Transform( 0.434842, 0, 0, 0, 0.434842, 0, 0, 0, 0.434842, 0, 2.69969, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 3 )
+
+[node name="ZAxis" type="MeshInstance" parent="."]
+transform = Transform( 0.434842, 0, 0, 0, 0.434842, 0, 0, 0, 0.434842, 0, 0, 2.7353 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="Indicator" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = SubResource( 5 )
+
+[node name="z" type="MeshInstance" parent="Indicator"]
+transform = Transform( 0.434842, 0, 0, 0, 0.434842, 0, 0, 0, 0.434842, 0, 0, 1 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 2 )
+
+[node name="y" type="MeshInstance" parent="Indicator"]
+transform = Transform( 0.434842, 0, 0, 0, 0.434842, 0, 0, 0, 0.434842, 0, 1, 0 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 3 )
+
+[node name="x" type="MeshInstance" parent="Indicator"]
+transform = Transform( 0.434842, 0, 0, 0, 0.434842, 0, 0, 0, 0.434842, 1, 0, -0.016 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 4 )
