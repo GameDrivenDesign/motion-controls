@@ -55,6 +55,7 @@ $joycon.controller_number: int	# index from 0 which controller this joycon.tscn 
 				# by default, it will simply increase with each new global(!) instance
 $joycon.bias: float		# value you can try tweaking if the orientation values (see below) are
 				# too noisy. Lower values mean slower but more stable response to rotation
+$joycon.dead_zone: number	# dead zone for the joystick in distancen from 0,0
 $joycon.rumble			# FIXME vibration engine input value, maybe also a method like
 				# add_rumble(frequency,duration)?
 $joycon.leds: Array[bool]	# an array of exactly four bools, indicating which LEDs are turned on
