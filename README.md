@@ -29,8 +29,9 @@ button_released(button: string)
 
 ```gdscript
 # READ/WRITE
-$joycon.controller_number: int	# index from 0 which controller this joycon.tscn instance represents
-				# by default, it will simply increase with each new global(!) instance
+$joycon.set_controller(index: int, manager: JoyConManager)
+				# index from 0 which controller this joycon.tscn instance represents
+				# and an instance of the joyconmanager that you used for init_devices (see below)
 $joycon.bias: float		# value you can try tweaking if the orientation values (see below) are
 				# too noisy. Lower values mean slower but more stable response to rotation
 
@@ -63,7 +64,7 @@ var manager = preload("res://JoyCons/JoyConManager.gd").new()
 func spawn_player(controller_number: number):
 	var player = preload("res://MyPlayer.tscn").instance()
 	# should set the nested joycon.tscn's controller_number
-	player.set_controller(controller_number, manager)
+	player.get_node("JoyCon").set_controller(controller_number, manager)
 
 func _ready():
 	#all devices must be connected as this point, we do not support late joining
