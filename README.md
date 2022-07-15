@@ -8,7 +8,7 @@
 2. Install the required dependencies: `sudo apt install libhidapi-hidraw0`
 3. Clone this repository: `git clone https://github.com/GameDrivenDesign/motion-controls.git`
 4. `cd` into the repository: `cd motion-controls`
-5. Grant user access to the bluetooth devices using `sudo chmod 0666 /dev/hidraw`. You need to rerun whenever you connect new devices or reboot your machine.
+5. Grant user access to the bluetooth devices using `sudo chmod 0666 /dev/hidraw*`. You need to rerun whenever you connect new devices or reboot your machine.
 6. Run godot like so: `LD_LIBRARY_PATH=$(pwd)/JoyCons godot3 -e` (If you are using a standalone installation, replace the _godot3_ with that binary)
 
 ## How to use the library
