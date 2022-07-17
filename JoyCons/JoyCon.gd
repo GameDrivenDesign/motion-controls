@@ -77,7 +77,7 @@ func show_indicator():
 func set_controller(number, manager):
 	data = manager.data
 	controller_index = number
-	color = data.get_color(controller_index)
+	color = get_joycon_color()
 	is_left = data.get_controller_type(controller_index) == 1
 	print("Using JoyCon with color: " + get_joycon_color_as_string())
 	set_process(true)
